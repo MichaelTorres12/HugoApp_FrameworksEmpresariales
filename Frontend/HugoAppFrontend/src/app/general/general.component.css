@@ -1,0 +1,17 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#aunMasGeneral{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+#aunMasGeneral > #divGeneral{
+    background-color: wheat;
+    width: 350px;
+}

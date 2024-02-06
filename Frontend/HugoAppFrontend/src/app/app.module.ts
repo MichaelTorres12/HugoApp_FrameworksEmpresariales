@@ -3,14 +3,18 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { GeneralComponent } from './general/general.component';
-import { BuscadorComponent } from './buscador/buscador.component';
+import { LoginComponent } from './components/login/login.component';
+import { BuscadorRestauranteComponent } from './components/buscador-restaurante/buscador-restaurante.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { GestionarPedidoComponent } from './components/gestionar-pedido/gestionar-pedido.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeneralComponent,
-    BuscadorComponent
+    LoginComponent,
+    BuscadorRestauranteComponent,
+    MenuComponent,
+    GestionarPedidoComponent
   ],
   imports: [
     BrowserModule,

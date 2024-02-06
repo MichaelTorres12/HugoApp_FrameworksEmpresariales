@@ -1,4 +1,12 @@
 *{
     margin: 0px;
     padding: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.wrapping{
+    margin-top: 5em;
 }

@@ -1,28 +1,31 @@
-<div class="loginContainer">
-    <div class="loginBrand">
-        <h1>Iniciar Sesión</h1>
-        <br>
-        <img src="assets/images/hugoapplogo.png" alt="Logo de HugoApp" width="75" height="75">
-    </div>
+<div class="generalContainerLogin">
 
-    <div class="formContainer">
-        <form id="loginUser">
-            <div>
-                <br>
-                <label for="usuarioCorreoUser">Ingrese usuario o correo:</label>
-                <br>
-                <input id="usuarioCorreoUser" placeholder="Ex: MichaelTorres12">
-            </div>
+    <div class="loginContainer">
+        <div class="loginBrand">
+            <h1>Iniciar Sesión</h1>
             <br>
-            <div>
-                <label for="contrasenaUser">Ingrese su contraseña:</label>
+            <img src="assets/images/hugoapplogo.png" alt="Logo de HugoApp" width="75" height="75">
+        </div>
+    
+        <div class="formContainer">
+            <form (ngSubmit)="onLogin()">
+                <div>
+                    <br>
+                    <label for="usuarioCorreoUser">Ingrese usuario o correo:</label>
+                    <br>
+                    <input type="email" id="usuarioCorreoUser" [(ngModel)]="email" name="email" placeholder="Ex: usuario@example.com" required>
+                </div>
                 <br>
-                <input id="contrasenaUser" placeholder="************">
-            </div>
-            <br>
-            <div>
-                <button>Entrar</button>
-            </div>
-        </form>
+                <div>
+                    <label for="contrasenaUser">Ingrese su contraseña:</label>
+                    <br>
+                    <input type="password" id="contrasenaUser" [(ngModel)]="password" name="password" placeholder="************" required>
+                </div>
+                <br>
+                <div>
+                    <button type="submit">Entrar</button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>

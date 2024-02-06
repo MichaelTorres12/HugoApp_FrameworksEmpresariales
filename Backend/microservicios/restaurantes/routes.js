@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-// const restaurantesController = require('./controllers/restaurantesController');
+const restauranteController = require('./controllers/restauranteController');
+
+router.get('/buscar', restauranteController.buscarPorTipoCocina);
 
 // Listar todos los restaurantes
 router.get('/', /* restaurantesController.listarRestaurantes */ (req, res) => {

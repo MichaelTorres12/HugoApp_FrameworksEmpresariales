@@ -1,1 +1,34 @@
-<p>buscador-restaurante works!</p>
+    <!-- buscar-restaurantes.component.html -->
+    <div class="buscar-restaurantes-container">
+        <h2>Buscar Restaurantes</h2>
+        
+        <!-- Formulario de Búsqueda -->
+        <form (ngSubmit)="buscarRestaurantesPorTipo()">
+          <div class="form-group">
+            <img src="assets/images/hugoapplogo.png" alt="Logo de HugoApp" width="70" height="70">
+            <input type="text" id="busqueda" name="busqueda" [(ngModel)]="tipoCocina" class="form-control" placeholder="Ex: Mexicana">
+          </div>
+          <div class="buttonSubmit">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+          </div>
+        </form>
+      
+        <!-- Resultados de Búsqueda -->
+        <div class="resultados-busqueda" *ngIf="restaurantes.length > 0">
+          <h3>Resultados</h3>
+          <ul class="lista-restaurantes">
+            <!-- Itera sobre la lista de restaurantes y muestra sus datos -->
+            <li *ngFor="let restaurante of restaurantes">
+              <h4>{{ restaurante.nombre }}</h4>
+              <p>{{ restaurante.descripcion }}</p>
+              <button (click)="verMenu(restaurante.id)">Ver Menú</button>
+            </li>
+          </ul>
+        </div>
+      
+        <!-- Mensaje cuando no hay resultados -->
+        <div *ngIf="restaurantes.length === 0 && tipoCocina">
+          <p>No se encontraron restaurantes que coincidan con la búsqueda.</p>
+        </div>
+      </div>
+      

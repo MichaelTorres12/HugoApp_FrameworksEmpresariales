@@ -13,7 +13,7 @@ async function login(req, res) {
         }
 
         // Crear y firmar el JWT
-        const token = jwt.sign({ id: usuario.UsuarioID, email: usuario.Email }, secretKey, { expiresIn: 86400 });
+        const token = jwt.sign({ id: usuario.UsuarioID, email: usuario.Email }, secretKey, { expiresIn: 1200 });
 
         res.json({ token });
     } catch (error) {

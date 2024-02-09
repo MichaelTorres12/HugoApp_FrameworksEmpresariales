@@ -10,6 +10,20 @@ async function buscarRestaurantesPorTipoCocina(tipoCocina) {
     return rows;
 }
 
+async function obtenerDetallesPorId(restauranteId) {
+    const connection = await getConnection();
+    const [result] = await connection.query('SELECT * FROM Restaurantes WHERE RestauranteID = ?', [restauranteId]);
+    return result[0]; // Asumiendo que RestauranteID es único, debería haber solo un resultado
+}
+
+async function obtenerMenuPorRestauranteId(restauranteId) {
+    const connection = await getConnection();
+    const [menuItems] = await connection.query('SELECT * FROM Menu WHERE RestauranteID = ?', [restauranteId]);
+    return menuItems;
+}
+
 module.exports = {
-    buscarRestaurantesPorTipoCocina
+    buscarRestaurantesPorTipoCocina,
+    obtenerDetallesPorId,
+    obtenerMenuPorRestauranteId
 };

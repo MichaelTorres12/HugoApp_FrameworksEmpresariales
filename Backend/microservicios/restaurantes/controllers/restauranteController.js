@@ -1,6 +1,6 @@
 // microservicios/restaurantes/controllers/restauranteController.js
 
-const { buscarRestaurantesPorTipoCocina } = require('../models/restaurante');
+const { buscarRestaurantesPorTipoCocina, obtenerDetallesPorId, obtenerMenuPorRestauranteId } = require('../models/restaurante');
 
 async function buscarPorTipoCocina(req, res) {
     try {
@@ -12,6 +12,31 @@ async function buscarPorTipoCocina(req, res) {
     }
 }
 
+async function obtenerDetallesRestaurante(req, res) {
+    try {
+        const restauranteId = req.params.restauranteID;
+        const restaurante = await obtenerDetallesPorId(restauranteId);
+        if (!restaurante) {
+            return res.status(404).send({ message: 'Restaurante no encontrado' });
+        }
+        res.json(restaurante);
+    } catch (error) {
+        res.status(500).send({ message: 'Error al obtener el restaurante', error: error.message });
+    }
+}
+
+async function obtenerMenuRestaurante(req, res) {
+    try {
+        const restauranteId = req.params.restauranteID;
+        const menu = await obtenerMenuPorRestauranteId(restauranteId);
+        res.json(menu);
+    } catch (error) {
+        res.status(500).send({ message: 'Error al obtener el menú del restaurante', error: error.message });
+    }
+}
+
 module.exports = {
-    buscarPorTipoCocina
+    buscarPorTipoCocina,
+    obtenerDetallesRestaurante,
+    obtenerMenuRestaurante
 };

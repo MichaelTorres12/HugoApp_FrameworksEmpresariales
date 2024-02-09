@@ -2,6 +2,7 @@
 
 const { buscarRestaurantesPorTipoCocina, obtenerDetallesPorId, obtenerMenuPorRestauranteId } = require('../models/restaurante');
 
+//Funcion que recibe el parametro del tipo de cocina para filtrar y envia al modelo para realizar el query
 async function buscarPorTipoCocina(req, res) {
     try {
         const tipoCocina = req.query.tipoCocina || ''; // Asegura un valor por defecto de cadena vacía
@@ -12,6 +13,7 @@ async function buscarPorTipoCocina(req, res) {
     }
 }
 
+//Funcion que recibe el parametro del restauranteID y envia al modelo.obtenerDetallesPorId para hacer el query y obtener los detalles de este restaurante
 async function obtenerDetallesRestaurante(req, res) {
     try {
         const restauranteId = req.params.restauranteID;
@@ -25,11 +27,12 @@ async function obtenerDetallesRestaurante(req, res) {
     }
 }
 
+////Funcion que recibe el parametro del restauranteID y envia al modelo.obtenerMenuPorRestauranteId para hacer el query y obtener el menu de ese restaurante en especifico.
 async function obtenerMenuRestaurante(req, res) {
     try {
         const restauranteId = req.params.restauranteID;
-        const menu = await obtenerMenuPorRestauranteId(restauranteId);
-        res.json(menu);
+        const Menus = await obtenerMenuPorRestauranteId(restauranteId);
+        res.json(Menus);
     } catch (error) {
         res.status(500).send({ message: 'Error al obtener el menú del restaurante', error: error.message });
     }

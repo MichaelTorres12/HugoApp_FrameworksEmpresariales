@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.restaurante-detalles-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background-color: yellowgreen;
+    
+    padding: 2em;
+}
+
+.restaurante-detalles-container > .informacionRestaurante{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    gap: 3em;
+    background-color: wheat;
+
+}
+
+.restaurante-detalles-container > .informacionRestaurante > .imgRestaurante > img{
+    border-radius: 20px;
+}
+
+.restaurante-detalles-container > .informacionRestaurante > .restauranteDetalles{
+    text-align: left;
+}
+.restaurante-detalles-container > .informacionRestaurante > .restauranteDetalles > h2{
+    font-size: 55px;
+    color: blueviolet;
+}
+.restaurante-detalles-container > .informacionRestaurante > .restauranteDetalles > p{
+    font-size: 27px;
+}

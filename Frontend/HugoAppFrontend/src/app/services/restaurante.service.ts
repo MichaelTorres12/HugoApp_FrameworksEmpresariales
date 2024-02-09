@@ -8,11 +8,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RestauranteService {
-  private baseUrl = 'http://localhost:3000/api/restaurantes'; // Asegúrate de que esta sea la URL correcta para tu backend
+  private baseUrl = 'http://localhost:3000/api/restaurantes'; // Esta sea la URL correcta para mi Backend
 
   constructor(private http: HttpClient) { }
 
+  //Usar la barra de busqueda para filtrar restaurantes por tipo de comida, eje: Mexa, rapida, etc.
   buscarRestaurantesPorTipoCocina(tipoCocina: string): Observable<any> {
     return this.http.get(`${this.baseUrl}/buscar?tipoCocina=${tipoCocina}`);
 }
+
+  //Darle click a un restaurante y por medio del ID obtener los detalles de este en especifico
+  obtenerDetallesRestaurante(restauranteId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${restauranteId}`);
+}
+
+  //Obtener el menu del restaurante en especifico que he seleccionado
+  obtenerMenuRestaurante(restauranteId: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}/${restauranteId}/menu`);
+  }
+
 }

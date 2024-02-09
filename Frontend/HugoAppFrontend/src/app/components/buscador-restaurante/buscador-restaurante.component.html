@@ -23,7 +23,7 @@
               <p>{{ restaurante.Direccion }}</p>
               <p>{{ restaurante.Telefono}}</p>
               <h5>{{ restaurante.TipoCocina}}</h5>
-              <button (click)="verMenu(restaurante.id)">Ver Menú</button>
+              <button [routerLink]="['/restaurantes', restaurante.RestauranteID]" class="btn btn-primary">Ver Menú</button>
             </li>
             <br>
           </ul>

@@ -9,6 +9,7 @@ import { BuscadorRestauranteComponent } from './components/buscador-restaurante/
 import { MenuComponent } from './components/menu/menu.component';
 import { GestionarPedidoComponent } from './components/gestionar-pedido/gestionar-pedido.component';
 import { FormsModule } from '@angular/forms';
+import { DetallesRestauranteComponent } from './detalles-restaurante/detalles-restaurante.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     BuscadorRestauranteComponent,
     MenuComponent,
     GestionarPedidoComponent,
+    DetallesRestauranteComponent,
   ],
   imports: [
     BrowserModule,

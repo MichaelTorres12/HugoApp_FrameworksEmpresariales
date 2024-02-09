@@ -1,0 +1,36 @@
+<div class="restaurante-detalles-container">
+    <img src="../../assets/images/hugoapplogo.png" alt="hugoapplogo" width="70" height="70" style="border-radius: 20px; margin-bottom: 2em;">
+    <div class="informacionRestaurante">
+        <div class="imgRestaurante">
+            <img src="../../assets/images/hootersImg.jpg" alt="hootersImg" width="320" height="250">
+        </div>
+        <div class="restauranteDetalles">
+            <h2>{{ restaurante.Nombre }}</h2>
+            <br>
+            <p><strong>Dirección:</strong> {{ restaurante.Direccion }}</p>
+            <br>
+            <p><strong>Teléfono:</strong> {{ restaurante.Telefono }}</p>
+            <br>
+            <p><strong>Tipo de Cocina:</strong> {{ restaurante.TipoCocina }}</p>
+        </div>
+    </div>
+    <br>
+    <div class="menuRestaurante">
+        <h3>Menú</h3>
+    <div *ngIf="menu.length > 0; else noMenu">
+        <ul>
+            <li *ngFor="let item of menu">
+                <h4>{{ item.NombrePlato }}</h4>
+                <p>{{ item.Descripcion }}</p>
+                <p>Precio: ${{ item.Precio }}</p>
+                <button (click)="agregarAlPedido(item)">Agregar al Pedido</button>
+            </li>
+        </ul>
+    </div>
+    <ng-template #noMenu>
+        <p>No hay ítems en el menú para mostrar.</p>
+    </ng-template>
+    </div>
+
+    
+</div>

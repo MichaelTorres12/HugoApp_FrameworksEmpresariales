@@ -17,19 +17,22 @@
     <br>
     <div class="menuRestaurante">
         <h3>Menú</h3>
-    <div *ngIf="menu.length > 0; else noMenu">
-        <ul>
-            <li *ngFor="let item of menu">
-                <h4>{{ item.NombrePlato }}</h4>
-                <p>{{ item.Descripcion }}</p>
-                <p>Precio: ${{ item.Precio }}</p>
-                <button (click)="agregarAlPedido(item)">Agregar al Pedido</button>
-            </li>
-        </ul>
-    </div>
-    <ng-template #noMenu>
-        <p>No hay ítems en el menú para mostrar.</p>
-    </ng-template>
+        <div *ngIf="menu.length > 0; else noMenu" class="menuWrapper">
+            <ul>
+                <li *ngFor="let item of menu">
+                    <h4>{{ item.NombrePlato }}</h4>
+                    <p>{{ item.Descripcion }}</p>
+                    <p>Precio: <strong> ${{ item.Precio }}</strong></p>
+                    <button (click)="agregarAlPedido(item)">Agregar al Pedido</button>
+                </li>
+            </ul>
+        </div>
+        <ng-template #noMenu>
+            <p>No hay ítems en el menú para mostrar.</p>
+        </ng-template>
+
+            <p style="font-size: 20px;">Michael Fernando Torres Callejas, TC100220</p>
+
     </div>
 
     

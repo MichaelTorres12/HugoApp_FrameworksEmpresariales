@@ -12,7 +12,7 @@
     align-items: center;
     align-content: center;
     text-align: center;
-    background-color: yellowgreen;
+    background-color: #ededed;
     
     padding: 2em;
 }
@@ -23,7 +23,6 @@
     align-content: center;
     text-align: center;
     gap: 3em;
-    background-color: wheat;
 
 }
 
@@ -40,4 +39,56 @@
 }
 .restaurante-detalles-container > .informacionRestaurante > .restauranteDetalles > p{
     font-size: 27px;
+}
+
+/*VER MENU CSS*/
+.restaurante-detalles-container > .menuRestaurante{
+    /*lo dejare vacio por el memento*/
+}
+.restaurante-detalles-container > .menuRestaurante > h3{
+    font-size: 38px;
+    color: rgb(65, 11, 107);
+    text-align: left;
+    margin-bottom: 0.5em;
+}
+
+
+.restaurante-detalles-container > .menuRestaurante > .menuWrapper{
+    margin-bottom: 1em;
+}
+
+.restaurante-detalles-container > .menuRestaurante > .menuWrapper > ul{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+.restaurante-detalles-container > .menuRestaurante > .menuWrapper > ul > li{
+    background-color: rgb(219, 221, 222);
+    margin-bottom: 2em;
+    box-shadow: 2px #525252;
+    list-style: none;
+    border-radius: 20px;
+    padding: 10px;
+}
+.restaurante-detalles-container > .menuRestaurante > .menuWrapper > ul > li > h4{
+    font-size: 33px;
+    color: rgb(75, 17, 120);
+    margin-bottom: 10px;
+}
+.restaurante-detalles-container > .menuRestaurante > .menuWrapper > ul > li > p{
+    font-size: 20px;
+    color: black;
+    margin-bottom: 10px;
+}
+.restaurante-detalles-container > .menuRestaurante > .menuWrapper > ul > li > button{
+    font-size: 22px;
+    background-color: goldenrod;
+    color: #ffffff;
+    border-radius: 10px;
+    border: none;
+    padding: 8px;
+}
+.restaurante-detalles-container > .menuRestaurante > .menuWrapper > ul > li > button:hover{
+    background-color: blueviolet;
+    cursor: pointer;
 }

@@ -32,8 +32,23 @@ async function obtenerPedidosPorUsuario(req, res) {
     }
 }
 
+async function obtenerDetallePedido(req, res) {
+    try {
+        const { PedidoID } = req.params;
+        const pedido = await pedidoModel.obtenerDetallePedido(PedidoID);
+        if (!pedido) {
+            return res.status(404).send({ message: "Pedido no encontrado" });
+        }
+        const detalles = await detallePedidoModel.obtenerDetallesPorPedidoID(PedidoID);
+        res.json({ ...pedido, detalles });
+    } catch (error) {
+        res.status(500).send({ message: "Error al obtener el detalle del pedido", error: error.message });
+    }
+}
+
 module.exports = {
     crearPedido,
     agregarItemDetallePedido,
     obtenerPedidosPorUsuario,
+    obtenerDetallePedido,
 };

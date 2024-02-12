@@ -16,19 +16,7 @@ async function crearPedido(datosPedido) {
 
 async function actualizarTotalPedido(PedidoID, Total) {
     const connection = await getConnection();
-    
-    // Calcular el nuevo total
-    const [result] = await connection.query(
-        'SELECT SUM(Precio * Cantidad) AS Total FROM DetallePedidos WHERE PedidoID = ?',
-        [PedidoID]
-    );
-    const nuevoTotal = result[0].Total;
-
-    // Actualizar el total en la tabla de Pedidos
-    await connection.query(
-        'UPDATE Pedidos SET Total = ? WHERE PedidoID = ?',
-        [nuevoTotal, PedidoID]
-    );
+    await connection.query('UPDATE Pedidos SET Total = ? WHERE PedidoID = ?', [Total, PedidoID]);
 }
 
 async function obtenerPedidosPorUsuario(UsuarioID) {
@@ -37,9 +25,21 @@ async function obtenerPedidosPorUsuario(UsuarioID) {
     return pedidos;
 }
 
+async function obtenerDetallePedido(PedidoID) {
+    const connection = await getConnection();
+    try {
+        const [result] = await connection.query('SELECT * FROM Pedidos WHERE PedidoID = ?', [PedidoID]);
+        return result.length > 0 ? result[0] : null;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
 module.exports = {
     crearPedido,
     actualizarTotalPedido,
     obtenerPedidosPorUsuario,
+    obtenerDetallePedido,
 };
 

@@ -11,4 +11,8 @@ router.post('/detalle', pedidoController.agregarItemDetallePedido);
 // Ruta para obtener pedidos por UsuarioID
 router.get('/usuario/:UsuarioID', pedidoController.obtenerPedidosPorUsuario);
 
+//Obtener un pedido en especifico
+router.get('/:PedidoID', pedidoController.obtenerDetallePedido);
+
+
 module.exports = router;

@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { RestauranteService } from '../services/restaurante.service';
 import { PedidoService } from '../services/pedido.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-detalles-restaurante',
@@ -20,7 +22,8 @@ export class DetallesRestauranteComponent implements OnInit {
   constructor(
     private restauranteService: RestauranteService,
     private pedidoService: PedidoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router, // Inyectar Router aquí
   ) { }
 
   ngOnInit(): void {
@@ -100,6 +103,7 @@ export class DetallesRestauranteComponent implements OnInit {
         this.metodoPago = 'Efectivo';
         alert('Pedido finalizado con éxito.');
         // Redirige al usuario o actualiza la UI como sea necesario
+        this.router.navigate(['/gestionar-pedido', pedidoId]);
       },
       error: (error) => console.error('Error creando el pedido:', error)
     });

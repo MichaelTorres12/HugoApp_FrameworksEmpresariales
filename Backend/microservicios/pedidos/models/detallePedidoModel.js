@@ -46,7 +46,19 @@ async function obtenerPedidosPorUsuario(req, res) {
     }
 }
 
+async function obtenerDetallesPorPedidoID(PedidoID) {
+    const connection = await getConnection();
+    try {
+        const [detalles] = await connection.query('SELECT * FROM DetallePedidos WHERE PedidoID = ?', [PedidoID]);
+        return detalles;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
 module.exports = {
     agregarItemDetallePedido,
-    obtenerPedidosPorUsuario
+    obtenerPedidosPorUsuario,
+    obtenerDetallesPorPedidoID,
 };

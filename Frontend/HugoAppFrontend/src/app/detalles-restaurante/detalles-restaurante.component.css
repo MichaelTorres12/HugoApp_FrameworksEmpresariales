@@ -92,3 +92,87 @@
     background-color: blueviolet;
     cursor: pointer;
 }
+
+/*Mostrar informacion del pedido que se está realizando en cuestion*/
+.pedidoGestionWrapper{
+    background-color: #DBDDDE;
+    width: 1650px;
+    margin-bottom: 3em;
+    border-radius: 40px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+
+.pedidoGestionWrapper > .pedido-temporal{
+}
+.pedidoGestionWrapper > .pedido-temporal > h3{
+    font-size: 40px;
+    color: rgb(65, 11, 107);
+}
+.pedidoGestionWrapper > .pedido-temporal > p{
+    font-size: 28px;
+    color:black;
+    margin-top: 15px;
+}
+
+.pedidoGestionWrapper > .pedido-temporal > .pedido-item{
+    font-size: 22px;
+    color: #202020;
+}
+
+.pedidoGestionWrapper > .pedido-finalizacion{
+    margin-top: 20px;
+}
+.pedidoGestionWrapper > .pedido-finalizacion > h3{
+    font-size: 40px;
+    color: rgb(65, 11, 107);
+}
+
+.pedidoGestionWrapper > .pedido-finalizacion > .detallesPedidoFormulario > .form-group{
+    /*Aqui podria manejar el formulario de digitar direccion de entrega y metodo de pago*/
+}
+.pedidoGestionWrapper > .pedido-finalizacion > .detallesPedidoFormulario > .form-group > label{
+    font-size: 24px;
+    margin-top: 10px;
+}
+.pedidoGestionWrapper > .pedido-finalizacion > .detallesPedidoFormulario > .form-group > input{
+    width: 400px;
+    height: 32px;
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 24px;
+    padding: 5px;
+}
+.pedidoGestionWrapper > .pedido-finalizacion > .detallesPedidoFormulario > .form-group > select{
+    width: 400px;
+    height: 40px;
+    margin-left: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    font-size: 24px;
+    padding: 5px;
+}
+
+.pedidoGestionWrapper > .pedido-finalizacion > .detallesPedidoFormulario > .btn{
+    width: 300px;
+    height: 55px;
+    border-radius: 10px;
+    border: none;
+    font-size: 30px;
+    padding: 5px;
+    margin-top: 28px;
+    background-color: rgb(56, 164, 19);
+    color: #ffffff;
+}
+.pedidoGestionWrapper > .pedido-finalizacion > .detallesPedidoFormulario > .btn:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+    
+}

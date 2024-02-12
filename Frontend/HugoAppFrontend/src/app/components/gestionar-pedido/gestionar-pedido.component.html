@@ -1,1 +1,17 @@
-<p>gestionar-pedido works!</p>
+<!-- En src/app/components/gestionar-pedido/gestionar-pedido.component.html -->
+<div *ngIf="pedido">
+    <h2>Detalles del Pedido #{{ pedido.PedidoID }}</h2>
+    <p>Estado: {{ pedido.Estado }}</p>
+    <p>Fecha: {{ pedido.FechaPedido | date }}</p>
+    <p>Total: {{ pedido.Total | currency }}</p>
+    <p>Dirección de Entrega: {{ pedido.DireccionEntrega }}</p>
+    <p>Método de Pago: {{ pedido.MetodoPago }}</p>
+  
+    <h3>Ítems del Pedido</h3>
+    <ul>
+      <li *ngFor="let item of pedido.detalles">
+        {{ item.MenuID }} - {{ item.Cantidad }} x {{ item.Precio | currency }}
+      </li>
+    </ul>
+  </div>
+  

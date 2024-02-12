@@ -32,8 +32,33 @@
         </ng-template>
 
             <p style="font-size: 20px;">Michael Fernando Torres Callejas, TC100220</p>
-
     </div>
 
+    <div class="pedido-temporal">
+        <h3>Tu Pedido</h3>
+        <div *ngFor="let item of pedidoTemporal" class="pedido-item">
+          <p>{{ item.NombrePlato }} - Precio: {{ item.Precio }} - Cantidad: {{ item.cantidad }}</p>
+        </div>
+        <p>Total: ${{ totalPedido }}</p>
+      </div>
+      
+      <div class="pedido-finalizacion">
+        <h3>Finalizar Pedido</h3>
+        <form (ngSubmit)="finalizarPedido()">
+          <div class="form-group">
+            <label for="direccionEntrega">Dirección de Entrega:</label>
+            <input type="text" id="direccionEntrega" [(ngModel)]="direccionEntrega" name="direccionEntrega" required>
+          </div>
+          <div class="form-group">
+            <label for="metodoPago">Método de Pago:</label>
+            <select id="metodoPago" [(ngModel)]="metodoPago" name="metodoPago" required>
+              <option value="Efectivo">Efectivo</option>
+              <option value="Tarjeta">Tarjeta</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Finalizar Pedido</button>
+        </form>
+      </div>
+    
     
 </div>

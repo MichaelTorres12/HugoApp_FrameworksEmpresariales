@@ -23,6 +23,7 @@ export class LoginComponent {
       data => {
         console.log(data);
         localStorage.setItem('token', data.token); // Guarda el token en localStorage
+        localStorage.setItem('UsuarioID', data.UsuarioID.toString());
         
         // Usa Router para navegar al componente buscador de restaurantes
         this.router.navigate(['/buscador-restaurante']); // Asegúrate de que la ruta esté definida en tus rutas

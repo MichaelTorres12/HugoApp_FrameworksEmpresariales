@@ -15,7 +15,8 @@ async function login(req, res) {
         // Crear y firmar el JWT
         const token = jwt.sign({ id: usuario.UsuarioID, email: usuario.Email }, secretKey, { expiresIn: 1200 });
 
-        res.json({ token });
+        //Agrego el UsuarioID en la respuesta
+        res.json({ token, UsuarioID: usuario.UsuarioID });
     } catch (error) {
         res.status(500).send({ message: 'Error en el servidor', error: error.message });
     }

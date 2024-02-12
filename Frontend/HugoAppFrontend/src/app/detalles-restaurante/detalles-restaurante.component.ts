@@ -37,7 +37,7 @@ export class DetallesRestauranteComponent implements OnInit {
 
   agregarAlPedido(item: any) {
     this.pedido.push(item);
-    // Aquí podrías implementar lógica adicional, como mostrar un mensaje de confirmación
+    // Aquí podria poner un mensaje de confirmación como ejemplo.
     console.log(this.pedido); // Para propósitos de depuración
   }
 

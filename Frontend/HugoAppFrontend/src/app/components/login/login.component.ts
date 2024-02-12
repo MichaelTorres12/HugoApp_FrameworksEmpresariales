@@ -3,6 +3,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
@@ -28,7 +29,7 @@ export class LoginComponent {
       },
       error => {
         console.error(error);
-        // Manejo de errores
+        console.log("Ha ocurrido un error");
       }
     );
   }

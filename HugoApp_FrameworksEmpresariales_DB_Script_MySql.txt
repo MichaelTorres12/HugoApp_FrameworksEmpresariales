@@ -1,0 +1,165 @@
+CREATE DATABASE HugoAppFrameworksEmpresariales;
+USE HugoAppFrameworksEmpresariales;
+
+CREATE TABLE Restaurantes (
+    RestauranteID INT PRIMARY KEY AUTO_INCREMENT,
+    Nombre VARCHAR(100),
+    Direccion VARCHAR(255),
+    Telefono INT,
+    TipoCocina VARCHAR(50)
+);
+
+CREATE TABLE Menus (
+    MenuID INT PRIMARY KEY AUTO_INCREMENT,
+    RestauranteID INT,
+    NombrePlato VARCHAR(100),
+    Descripcion VARCHAR(255),
+    Precio DECIMAL(10, 2),
+    Tipo VARCHAR(50),
+    FOREIGN KEY (RestauranteID) REFERENCES Restaurantes(RestauranteID)
+);
+
+CREATE TABLE Usuarios (
+    UsuarioID INT PRIMARY KEY AUTO_INCREMENT,
+    Email VARCHAR(100),
+    Contrasena VARCHAR(100)
+);
+
+CREATE TABLE Pedidos (
+    PedidoID INT PRIMARY KEY AUTO_INCREMENT,
+    UsuarioID INT,
+    FechaPedido DATETIME,
+    Estado VARCHAR(50) DEFAULT 'Preparando',
+    Total DECIMAL(10, 2),
+    DireccionEntrega VARCHAR(255),
+    MetodoPago VARCHAR(50),
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
+);
+
+CREATE TABLE DetallePedidos (
+    DetalleID INT PRIMARY KEY AUTO_INCREMENT,
+    PedidoID INT,
+    MenuID INT,
+    Cantidad INT,
+    Precio DECIMAL(10, 2),
+    FOREIGN KEY (PedidoID) REFERENCES Pedidos(PedidoID),
+    FOREIGN KEY (MenuID) REFERENCES Menus(MenuID)
+);
+
+INSERT INTO Restaurantes (Nombre, Direccion, Telefono, TipoCocina) VALUES 
+('Burger Master', 'Calle Principal 100, Ciudad', 12345678, 'Comida Rápida'),
+('Speedy Pizza', 'Avenida Secundaria 200, Ciudad', 23456789, 'Comida Rápida'),
+('FryDays', 'Calle Tercera 300, Ciudad', 34567890, 'Comida Rápida'),
+('Taco King', 'Avenida Cuarta 400, Ciudad', 45678901, 'Comida Rápida'),
+('Cantina Mex', 'Boulevard Quinto 500, Ciudad', 56789012, 'Mexicana'),
+('Sabor Azteca', 'Calle Sexta 600, Ciudad', 67890123, 'Mexicana'),
+('Dragon Rojo', 'Avenida Séptima 700, Ciudad', 78901234, 'China'),
+('Panda Express', 'Calle Octava 800, Ciudad', 89012345, 'China'),
+('Sabores Nuestros', 'Boulevard Noveno 900, Ciudad', 90123456, 'Típica'),
+('Sushi Dreams', 'Avenida Décima 1000, Ciudad', 123456789, 'Japonesa');
+
+INSERT INTO Usuarios (Email, Contrasena) VALUES 
+('usuario1@example.com', 'password1'),
+('usuario2@example.com', 'password2'),
+('usuario3@example.com', 'password3'),
+('usuario4@example.com', 'password4'),
+('usuario5@example.com', 'password5');
+
+INSERT INTO Usuarios (Email, Contrasena) VALUES 
+('emiliano@example.com', 'password6');
+INSERT INTO Usuarios (Email, Contrasena) VALUES 
+('emiliano2@example.com', 'password7');
+
+#POBLAR TABLA DE MENU:
+-- RestauranteID = 1 (Burger Master)
+INSERT INTO Menus (RestauranteID, NombrePlato, Descripcion, Precio, Tipo) VALUES 
+(1, 'Hamburguesa Suprema', '200g de carne, queso cheddar, bacon, cebolla caramelizada, salsa BBQ', 8.50, 'Plato Principal'),
+(1, 'Chicken Wings', 'Alitas de pollo bañadas en salsa picante', 7.00, 'Plato Principal'),
+(1, 'Veggie Burger', 'Hamburguesa vegetariana con quinoa y frijoles negros, aguacate', 7.50, 'Plato Principal'),
+(1, 'Coca Cola', 'Refresco de cola 500ml', 1.50, 'Bebida'),
+(1, 'Sprite', 'Refresco de lima-limón 500ml', 1.50, 'Bebida'),
+(1, 'Papas Fritas', 'Porción grande de papas fritas con sal', 2.00, 'Acompañamiento'),
+(1, 'Aros de Cebolla', 'Aros de cebolla empanizados y fritos', 2.50, 'Acompañamiento'),
+(1, 'Ensalada Fresca', 'Mezcla de lechugas, tomate, zanahoria, aderezo italiano', 3.00, 'Acompañamiento'),
+(2, 'Hamburguesa Suprema', '200g de carne, queso cheddar, bacon, cebolla caramelizada, salsa BBQ', 8.50, 'Plato Principal'),
+(2, 'Chicken Wings', 'Alitas de pollo bañadas en salsa picante', 7.00, 'Plato Principal'),
+(2, 'Veggie Burger', 'Hamburguesa vegetariana con quinoa y frijoles negros, aguacate', 7.50, 'Plato Principal'),
+(2, 'Coca Cola', 'Refresco de cola 500ml', 1.50, 'Bebida'),
+(2, 'Sprite', 'Refresco de lima-limón 500ml', 1.50, 'Bebida'),
+(2, 'Papas Fritas', 'Porción grande de papas fritas con sal', 2.00, 'Acompañamiento'),
+(2, 'Aros de Cebolla', 'Aros de cebolla empanizados y fritos', 2.50, 'Acompañamiento'),
+(2, 'Ensalada Fresca', 'Mezcla de lechugas, tomate, zanahoria, aderezo italiano', 3.00, 'Acompañamiento'),
+(3, 'Hamburguesa Suprema', '200g de carne, queso cheddar, bacon, cebolla caramelizada, salsa BBQ', 8.50, 'Plato Principal'),
+(3, 'Chicken Wings', 'Alitas de pollo bañadas en salsa picante', 7.00, 'Plato Principal'),
+(3, 'Veggie Burger', 'Hamburguesa vegetariana con quinoa y frijoles negros, aguacate', 7.50, 'Plato Principal'),
+(3, 'Coca Cola', 'Refresco de cola 500ml', 1.50, 'Bebida'),
+(3, 'Sprite', 'Refresco de lima-limón 500ml', 1.50, 'Bebida'),
+(3, 'Papas Fritas', 'Porción grande de papas fritas con sal', 2.00, 'Acompañamiento'),
+(3, 'Aros de Cebolla', 'Aros de cebolla empanizados y fritos', 2.50, 'Acompañamiento'),
+(3, 'Ensalada Fresca', 'Mezcla de lechugas, tomate, zanahoria, aderezo italiano', 3.00, 'Acompañamiento'),
+(4, 'Hamburguesa Suprema', '200g de carne, queso cheddar, bacon, cebolla caramelizada, salsa BBQ', 8.50, 'Plato Principal'),
+(4, 'Chicken Wings', 'Alitas de pollo bañadas en salsa picante', 7.00, 'Plato Principal'),
+(4, 'Veggie Burger', 'Hamburguesa vegetariana con quinoa y frijoles negros, aguacate', 7.50, 'Plato Principal'),
+(4, 'Coca Cola', 'Refresco de cola 500ml', 1.50, 'Bebida'),
+(4, 'Sprite', 'Refresco de lima-limón 500ml', 1.50, 'Bebida'),
+(4, 'Papas Fritas', 'Porción grande de papas fritas con sal', 2.00, 'Acompañamiento'),
+(4, 'Aros de Cebolla', 'Aros de cebolla empanizados y fritos', 2.50, 'Acompañamiento'),
+(4, 'Ensalada Fresca', 'Mezcla de lechugas, tomate, zanahoria, aderezo italiano', 3.00, 'Acompañamiento'),
+(5, 'Tacos de Carnitas', 'Tacos rellenos de carnitas de cerdo, cebolla, cilantro y salsa verde', 6.00, 'Plato Principal'),
+(5, 'Quesadillas de Pollo', 'Quesadillas rellenas de pollo deshebrado y queso Oaxaca', 5.50, 'Plato Principal'),
+(5, 'Enchiladas Verdes', 'Enchiladas rellenas de pollo bañadas en salsa verde, crema y queso', 7.00, 'Plato Principal'),
+(5, 'Agua de Jamaica', 'Refresco natural de flor de jamaica', 1.50, 'Bebida'),
+(5, 'Horchata', 'Bebida tradicional de arroz con leche y canela', 1.50, 'Bebida'),
+(5, 'Guacamole', 'Aguacate triturado con tomate, cebolla, cilantro y limón', 3.00, 'Acompañamiento'),
+(5, 'Arroz Mexicano', 'Arroz cocido con tomate, guisantes y zanahorias', 2.50, 'Acompañamiento'),
+(5, 'Frijoles Refritos', 'Frijoles molidos y fritos con queso encima', 2.00, 'Acompañamiento'),
+(6, 'Tacos de Carnitas', 'Tacos rellenos de carnitas de cerdo, cebolla, cilantro y salsa verde', 6.00, 'Plato Principal'),
+(6, 'Quesadillas de Pollo', 'Quesadillas rellenas de pollo deshebrado y queso Oaxaca', 5.50, 'Plato Principal'),
+(6, 'Enchiladas Verdes', 'Enchiladas rellenas de pollo bañadas en salsa verde, crema y queso', 7.00, 'Plato Principal'),
+(6, 'Agua de Jamaica', 'Refresco natural de flor de jamaica', 1.50, 'Bebida'),
+(6, 'Horchata', 'Bebida tradicional de arroz con leche y canela', 1.50, 'Bebida'),
+(6, 'Guacamole', 'Aguacate triturado con tomate, cebolla, cilantro y limón', 3.00, 'Acompañamiento'),
+(6, 'Arroz Mexicano', 'Arroz cocido con tomate, guisantes y zanahorias', 2.50, 'Acompañamiento'),
+(6, 'Frijoles Refritos', 'Frijoles molidos y fritos con queso encima', 2.00, 'Acompañamiento'),
+(7, 'Pollo Kung Pao', 'Pollo salteado con maní, vegetales y chiles secos', 8.00, 'Plato Principal'),
+(7, 'Cerdo Agridulce', 'Trozos de cerdo frito con salsa agridulce y piña', 7.50, 'Plato Principal'),
+(7, 'Arroz Frito', 'Arroz salteado con camarones, guisantes y zanahoria', 6.50, 'Plato Principal'),
+(7, 'Té Verde', 'Té verde tradicional chino', 1.00, 'Bebida'),
+(7, 'Soda de Lichi', 'Refresco de soda con sabor a lichi', 1.50, 'Bebida'),
+(7, 'Rollitos Primavera', 'Rollitos de verduras y carne de cerdo, fritos', 3.00, 'Acompañamiento'),
+(7, 'Dumplings al Vapor', 'Empanadillas rellenas de carne y verduras al vapor', 4.00, 'Acompañamiento'),
+(7, 'Ensalada de Algas', 'Ensalada de algas con un toque de aceite de sésamo', 2.50, 'Acompañamiento'),
+(8, 'Pollo Kung Pao', 'Pollo salteado con maní, vegetales y chiles secos', 8.00, 'Plato Principal'),
+(8, 'Cerdo Agridulce', 'Trozos de cerdo frito con salsa agridulce y piña', 7.50, 'Plato Principal'),
+(8, 'Arroz Frito', 'Arroz salteado con camarones, guisantes y zanahoria', 6.50, 'Plato Principal'),
+(8, 'Té Verde', 'Té verde tradicional chino', 1.00, 'Bebida'),
+(8, 'Soda de Lichi', 'Refresco de soda con sabor a lichi', 1.50, 'Bebida'),
+(8, 'Rollitos Primavera', 'Rollitos de verduras y carne de cerdo, fritos', 3.00, 'Acompañamiento'),
+(8, 'Dumplings al Vapor', 'Empanadillas rellenas de carne y verduras al vapor', 4.00, 'Acompañamiento'),
+(8, 'Ensalada de Algas', 'Ensalada de algas con un toque de aceite de sésamo', 2.50, 'Acompañamiento'),
+(9, 'Pupusas Revueltas', 'Tortillas de maíz rellenas de chicharrón, queso y frijoles', 2.00, 'Plato Principal'),
+(9, 'Tamales de Elote', 'Tamales dulces de maíz servidos con crema', 1.50, 'Plato Principal'),
+(9, 'Yuca con Chicharrón', 'Yuca cocida acompañada de chicharrón y curtido', 3.00, 'Plato Principal'),
+(9, 'Horchata Salvadoreña', 'Bebida de arroz con morro y canela', 1.00, 'Bebida'),
+(9, 'Tamarindo', 'Bebida refrescante de tamarindo natural', 1.00, 'Bebida'),
+(9, 'Curtido', 'Encurtido de repollo, zanahoria y cebolla', 0.50, 'Acompañamiento'),
+(9, 'Plátanos Fritos', 'Plátanos maduros fritos servidos con crema', 2.00, 'Acompañamiento'),
+(9, 'Ensalada de la Casa', 'Mezcla de lechugas, tomate, aguacate y rábano', 2.50, 'Acompañamiento'),
+(10, 'Sushi Roll Mixto', 'Variedad de rolls sushi, incluyendo salmón, atún y vegetales', 9.00, 'Plato Principal'),
+(10, 'Tempura de Camarón', 'Camarones y vegetales en tempura', 7.50, 'Plato Principal'),
+(10, 'Teriyaki de Pollo', 'Pollo en salsa teriyaki servido con arroz', 8.00, 'Plato Principal'),
+(10, 'Sake', 'Vino de arroz japonés', 3.00, 'Bebida'),
+(10, 'Té Verde Matcha', 'Té verde matcha tradicional', 1.50, 'Bebida'),
+(10, 'Edamame', 'Vainas de soja japonesas cocidas y saladas', 2.00, 'Acompañamiento'),
+(10, 'Ensalada de Algas', 'Ensalada de algas wakame con vinagreta de sésamo', 2.50, 'Acompañamiento'),
+(10, 'Miso Soup', 'Sopa de miso con tofu, wakame y cebolla de verdeo', 2.00, 'Acompañamiento');
+
+SELECT * FROM Restaurantes;
+SELECT * FROM Usuarios;
+SELECT * FROM Menus;
+SELECT * FROM Pedidos;
+SELECT * FROM DetallePedidos;
+
+SELECT * FROM Restaurantes WHERE RestauranteID = 3;
+
+SELECT SUM(Precio * Cantidad) AS Total FROM DetallePedidos WHERE PedidoID = 2;

@@ -24,7 +24,7 @@ async function agregarItemDetallePedido(req, res) {
 // Obtener pedidos por UsuarioID
 async function obtenerPedidosPorUsuario(req, res) {
     try {
-        const UsuarioID = req.params.UsuarioID; // Asegúrate de capturar el UsuarioID correctamente de los parámetros de la ruta
+        const UsuarioID = req.params.UsuarioID; // Me aseguro de capturar el UsuarioID correctamente de los parámetros de la ruta
         const pedidos = await pedidoModel.obtenerPedidosPorUsuario(UsuarioID);
         res.json(pedidos);
     } catch (error) {

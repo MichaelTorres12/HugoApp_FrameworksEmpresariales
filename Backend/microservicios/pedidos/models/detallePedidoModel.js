@@ -1,7 +1,7 @@
 // Ubicación: microservicios/pedidos/models/detallePedidoModel.js
 
 const { getConnection } = require('../../../db/dbConnection');
-const pedidoModel = require('./pedidoModel'); // Asegúrate de que la ruta sea correcta
+const pedidoModel = require('./pedidoModel');
 
 async function agregarItemDetallePedido(datosDetalle) {
     const { PedidoID, MenuID, Cantidad } = datosDetalle;

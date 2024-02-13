@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.detallesPedidoWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+
+    padding: 1em;
+}
+
+.detallesPedidoWrapper > .detailsWrapper{
+    background-color: #e2e2e2;
+    border-radius: 30px;
+    padding: 2em;
+}
+
+.detallesPedidoWrapper > .detailsWrapper > h2{
+    font-size: 42px;
+    color: rgb(65, 11, 107);
+    margin-bottom: 20px;
+}
+.detallesPedidoWrapper > .detailsWrapper > p{
+    font-size: 34px;
+
+    margin-bottom: 14px;
+}
+.detallesPedidoWrapper > .detailsWrapper > h3{
+    font-size: 42px;
+    color: rgb(65, 11, 107);
+    margin-bottom: 20px;
+}
+
+.detallesPedidoWrapper > .detailsWrapper > ul{
+    list-style: none;
+    font-size: 25px;
+    margin-bottom: 14px;
+}
+
+.detallesPedidoWrapper > .detailsWrapper > div > button{
+    background-color: goldenrod;
+    color: #ffffff;
+    padding: 12px;
+    font-size: 35px;
+    margin-top: 20px;
+    border-radius: 20px;
+    border: none;
+}
+.detallesPedidoWrapper > .detailsWrapper > div > button:hover{
+    background-color: blueviolet;
+    cursor: pointer;
+}

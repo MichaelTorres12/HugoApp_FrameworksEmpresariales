@@ -12,7 +12,7 @@ export class BuscadorRestauranteComponent {
 
   constructor(private restauranteService: RestauranteService) { }
 
-  // En tu método de búsqueda dentro del componente
+  // En mi método de búsqueda dentro del componente
 buscarRestaurantesPorTipo(): void {
   this.restauranteService.buscarRestaurantesPorTipoCocina(this.tipoCocina).subscribe(
     data => {
@@ -25,7 +25,6 @@ buscarRestaurantesPorTipo(): void {
 }
 
   verMenu(id: number): void {
-    // Implementa la lógica para mostrar el menú del restaurante seleccionado
-    // Esto podría ser una redirección o abrir un modal, dependiendo de tu diseño
+    // La lógica para mostrar el menú del restaurante seleccionado, si quisisese abrirlo aqui o con una ventana modal pero como lo hare redireccionado a otro componente.
   }
 }

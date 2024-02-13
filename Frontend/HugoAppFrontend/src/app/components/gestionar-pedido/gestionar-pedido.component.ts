@@ -1,5 +1,6 @@
 // En src/app/components/gestionar-pedido/gestionar-pedido.component.ts
 
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PedidoService } from '../../services/pedido.service';
@@ -14,7 +15,8 @@ export class GestionarPedidoComponent implements OnInit {
 
   constructor(
     private pedidoService: PedidoService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router,
   ) {}
 
   ngOnInit(): void {
@@ -22,5 +24,10 @@ export class GestionarPedidoComponent implements OnInit {
     this.pedidoService.obtenerDetallesPedido(pedidoId).subscribe(pedido => {
       this.pedido = pedido;
     });
+  }
+
+  //Para que el boton me ayude regresar al incio de todo
+  regresarAlInicio() {
+    this.router.navigate(['/buscador-restaurante']);
   }
 }

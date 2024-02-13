@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RestauranteService {
-  private baseUrl = 'http://localhost:3000/api/restaurantes'; // Esta sea la URL correcta para mi Backend
+  private baseUrl = 'http://localhost:3000/api/restaurantes';
 
   constructor(private http: HttpClient) { }
 

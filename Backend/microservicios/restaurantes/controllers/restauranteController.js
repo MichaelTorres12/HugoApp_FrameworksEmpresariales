@@ -27,7 +27,7 @@ async function obtenerDetallesRestaurante(req, res) {
     }
 }
 
-////Funcion que recibe el parametro del restauranteID y envia al modelo.obtenerMenuPorRestauranteId para hacer el query y obtener el menu de ese restaurante en especifico.
+//Funcion que recibe el parametro del restauranteID y envia al modelo.obtenerMenuPorRestauranteId para hacer el query y obtener el menu de ese restaurante en especifico.
 async function obtenerMenuRestaurante(req, res) {
     try {
         const restauranteId = req.params.restauranteID;

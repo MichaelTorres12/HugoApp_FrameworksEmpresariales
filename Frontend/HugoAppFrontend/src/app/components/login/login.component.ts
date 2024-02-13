@@ -9,13 +9,13 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'] // Debe ser un arreglo
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   email = '';
   password = '';
 
-  // Inyecta Router y AuthService en el constructor
+  // Inyecto Router y AuthService en el constructor
   constructor(private authService: AuthService, private router: Router) { }
 
   onLogin(): void {
@@ -23,10 +23,10 @@ export class LoginComponent {
       data => {
         console.log(data);
         localStorage.setItem('token', data.token); // Guarda el token en localStorage
-        localStorage.setItem('UsuarioID', data.UsuarioID.toString());
+        localStorage.setItem('UsuarioID', data.UsuarioID.toString()); //Guarda el ID del usuario en el local Storage hecho string
         
         // Usa Router para navegar al componente buscador de restaurantes
-        this.router.navigate(['/buscador-restaurante']); // Asegúrate de que la ruta esté definida en tus rutas
+        this.router.navigate(['/buscador-restaurante']);
       },
       error => {
         console.error(error);

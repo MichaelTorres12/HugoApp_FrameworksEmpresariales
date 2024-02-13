@@ -1,17 +1,26 @@
 <!-- En src/app/components/gestionar-pedido/gestionar-pedido.component.html -->
-<div *ngIf="pedido">
-    <h2>Detalles del Pedido #{{ pedido.PedidoID }}</h2>
-    <p>Estado: {{ pedido.Estado }}</p>
-    <p>Fecha: {{ pedido.FechaPedido | date }}</p>
-    <p>Total: {{ pedido.Total | currency }}</p>
-    <p>Dirección de Entrega: {{ pedido.DireccionEntrega }}</p>
-    <p>Método de Pago: {{ pedido.MetodoPago }}</p>
+<div class="detallesPedidoWrapper">
+
+  <div *ngIf="pedido" class="detailsWrapper">
+      <h2>Detalles del Pedido #{{ pedido.PedidoID }}</h2>
+      <p><strong> Estado: </strong>{{ pedido.Estado }}</p>
+      <p> <strong>Fecha:</strong>{{ pedido.FechaPedido | date }}</p>
+      <p style="font-size: 45px;"><strong> Total: {{ pedido.Total | currency }} </strong></p>
+      <p><strong> Dirección de Entrega: </strong>{{ pedido.DireccionEntrega }}</p>
+      <p><strong> Método de Pago: </strong>{{ pedido.MetodoPago }}</p>
+    
+      <br>
+      <hr style="height: 3px; background-color: rgb(49, 47, 47);">
+      <br>
+      <h3>Ítems del Pedido</h3>
+      <ul>
+        <li *ngFor="let item of pedido.detalles">
+          {{ item.MenuID }} - {{ item.Cantidad }} x {{ item.Precio | currency }}
+        </li>
+      </ul>
+      <div>
+        <button type="button" (click)="regresarAlInicio()">Regresar al Inicio</button>
+    </div>
+    </div>
   
-    <h3>Ítems del Pedido</h3>
-    <ul>
-      <li *ngFor="let item of pedido.detalles">
-        {{ item.MenuID }} - {{ item.Cantidad }} x {{ item.Precio | currency }}
-      </li>
-    </ul>
-  </div>
-  
+</div>

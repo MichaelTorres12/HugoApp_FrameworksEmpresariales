@@ -1,5 +1,7 @@
 <div class="restaurante-detalles-container">
     <img src="../../assets/images/hugoapplogo.png" alt="hugoapplogo" width="70" height="70" style="border-radius: 20px; margin-bottom: 2em;">
+
+    <!--Aqui muestro la informacion y detalles del restaurante en cuestion-->
     <div class="informacionRestaurante">
         <div class="imgRestaurante">
             <img src="../../assets/images/hootersImg.jpg" alt="hootersImg" width="320" height="250">
@@ -15,6 +17,8 @@
         </div>
     </div>
     <br>
+
+    <!--Aqui muestro el menu del restaurante en cuestion-->
     <div class="menuRestaurante">
         <h3>Menú</h3>
         <div *ngIf="menu.length > 0; else noMenu" class="menuWrapper">
@@ -33,6 +37,7 @@
 
     </div>
 
+    <!--Aqui muestro un resumen del pedido del cliente-->
       <div class="pedidoGestionWrapper">
         <div class="pedido-temporal">
           <h3>Tu Pedido</h3>
@@ -42,6 +47,7 @@
           <p> Total: <strong>${{ totalPedido }} </strong></p>
         </div>
         
+        <!--Aqui esta el forumlario que llea el cliente para terminar de enviar los detalles del pedido-->
         <div class="pedido-finalizacion">
           <h3>Finalizar Pedido</h3>
           <form (ngSubmit)="finalizarPedido()" class="detallesPedidoFormulario">

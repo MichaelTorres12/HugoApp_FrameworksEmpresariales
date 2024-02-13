@@ -49,11 +49,10 @@ export class DetallesRestauranteComponent implements OnInit {
     const itemExistente = this.pedidoTemporal.find(item => item.MenuID === itemSeleccionado.MenuID);
   
     if (itemExistente) {
-      // Si el ítem ya existe, incrementar su cantidad
+      // Si el ítem ya existe, incremento su cantidad
       itemExistente.cantidad += 1;
     } else {
-      // Si el ítem no existe en el pedido, añadirlo con cantidad inicial de 1
-      // Asumiendo que cada ítem tiene un campo 'cantidad' para este propósito
+      // Si el ítem no existe en el pedido, lo añado con cantidad inicial de 1, asumiendo que cada ítem tiene un campo 'cantidad' para este propósito
       const itemConCantidad = { ...itemSeleccionado, cantidad: 1 };
       this.pedidoTemporal.push(itemConCantidad);
     }
@@ -89,14 +88,14 @@ export class DetallesRestauranteComponent implements OnInit {
             PedidoID: pedidoId,
             MenuID: item.MenuID,
             Cantidad: item.cantidad,
-            Precio: item.Precio // Envía el Precio solo si tu backend lo requiere
+            Precio: item.Precio // Envio el precio al backend por si lo requiero
           }).subscribe({
             next: (response) => console.log('Ítem agregado con éxito', response),
             error: (error) => console.error('Error agregando ítem al pedido:', error)
           });
         });
   
-        // Limpieza post-pedido
+        // Limpieza post-pedido de todos los campos
         this.pedidoTemporal = [];
         this.totalPedido = 0;
         this.direccionEntrega = '';
